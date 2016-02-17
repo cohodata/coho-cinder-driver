@@ -15,6 +15,11 @@ Coho Data's storage features include real-time instance level
 granularity performance and capacity reporting via API or UI, and
 single-IP storage endpoint access.
 
+
+Openstack Release Support
+~~~~~~~~~~~~~~~~~~~~~~~~~
+This repository holds the Coho driver for Kilo and Liberty releases.
+
 Supported operations
 ~~~~~~~~~~~~~~~~~~~~
 
@@ -40,6 +45,13 @@ System requirements
 Coho Data Block Storage driver configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+#. Download Coho driver onto Block Storage controller.
+
+   .. code-block:: console
+
+      $ cd /opt/stack/cinder/volume/drivers/
+      $ wget https://raw.githubusercontent.com/coho-data/coho-cinder-driver/master/coho.py ./
+
 #. Create cinder volume type.
 
    .. code-block:: console
@@ -61,7 +73,6 @@ Coho Data Block Storage driver configuration
       volume_driver = cinder.volume.drivers.coho.CohoDriver
       volume_backend_name = coho-1
       nfs_shares_config = /etc/cinder/coho_shares
-      nas_secure_file_operations = 'false'
 
 #. Add your list of Coho Datastream NFS addresses to the file you specified
    with the ``nfs_shares_config`` option. For example, if the value of this
